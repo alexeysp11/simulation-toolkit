@@ -1,0 +1,23 @@
+﻿<Window x:Class="CarWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarWPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
+        Title="CarWPF" Height="450" Width="800">
+    <Canvas Name="myCanvas" Background="White" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp">
+        <Button Name="newBtn" Content="New" Height="30" Width="150" Canvas.Left="100" Canvas.Top="350" Click="newBtn_Clicked" />
+        <Button Name="pauseBtn" Content="Pause" Height="30" Width="150" Canvas.Left="250" Canvas.Top="350" Click="pauseBtn_Clicked" />
+        <Button Name="continueBtn" Content="Continue" Height="30" Width="150" Canvas.Left="400" Canvas.Top="350" Click="continueBtn_Clicked" />
+        <Button Name="exitBtn" Content="Exit" Height="30" Width="150" Canvas.Left="550" Canvas.Top="350" Click="exitBtn_Clicked" />
+
+        <TextBlock Name="LevelTb" Text="Level: 1" FontSize="15" Canvas.Left="100" Canvas.Top="300"/>
+        <TextBlock Name="DistanceTb" Text="Distance: 0 m" FontSize="15" Canvas.Left="550" Canvas.Top="275"/>
+        <TextBlock Name="SpeedTb" Text="Speed: 0 km/h" FontSize="15" Canvas.Left="550" Canvas.Top="300"/>
+
+        <Rectangle Name="player" Height="10" Width="15" Fill="Red" Canvas.Left="20" Canvas.Top="50" />
+        <Rectangle Name="endPoint" Height="10" Width="15" Fill="Purple" Canvas.Left="381" Canvas.Top="279" />
+    </Canvas>
+</Window>

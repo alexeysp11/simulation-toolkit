@@ -1,0 +1,53 @@
+﻿<Window x:Class="PidControllerWpf.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PidControllerWpf.Views"
+        xmlns:vm="clr-namespace:PidControllerWpf.ViewModels"
+        xmlns:uc="clr-namespace:PidControllerWpf.UserControls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="PID Controller" 
+        MaxHeight="450" MinHeight="450" MaxWidth="800" MinWidth="800">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding PidVM.VariablesCommand}" CommandParameter="IncreaseSP"
+                    Key="W" />
+        <KeyBinding Command="{Binding PidVM.VariablesCommand}" CommandParameter="DecreaseSP"
+                    Key="S" />
+        
+        <KeyBinding Command="{Binding PidVM.VariablesCommand}" CommandParameter="IncreasePV"
+                    Key="W" Modifiers="Ctrl" />
+        <KeyBinding Command="{Binding PidVM.VariablesCommand}" CommandParameter="DecreasePV"
+                    Key="S" Modifiers="Ctrl" />
+
+        <KeyBinding Command="{Binding RedirectCommand}" CommandParameter="Graph2D"
+                    Key="G" Modifiers="Alt" />
+        <KeyBinding Command="{Binding RedirectCommand}" CommandParameter="BarCharts"
+                    Key="B" Modifiers="Alt" />
+    </Window.InputBindings>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <uc:Menu x:Name="Menu" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+
+        <Border BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="1"/>
+        <uc:Configuration x:Name="Configuration" Grid.Row="1" Grid.Column="0" />
+
+        <Border BorderThickness="0.5" BorderBrush="Black" Grid.Column="0" Grid.Row="2"/>
+        <uc:KeyboardShortcuts x:Name="KeyboardShortcuts" Grid.Column="0" Grid.Row="2" Margin="10,5,0,0" />
+
+        <Border BorderThickness="0.5" BorderBrush="Black" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
+        <uc:Graph2D x:Name="Graph2D" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" />
+        <uc:BarCharts x:Name="BarCharts" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Visibility="Hidden" />
+    </Grid>
+</Window>
